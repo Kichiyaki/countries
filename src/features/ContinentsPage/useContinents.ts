@@ -12,12 +12,13 @@ const QUERY = gql`
 `;
 
 const useContinents = () => {
-  const { data, loading } = useQuery<Query["continents"], any>(QUERY);
+  const { data, loading, error } = useQuery<Query["continents"], any>(QUERY);
   const continents = useMemo(() => data ?? [], [data]);
 
   return {
     continents,
     loading,
+    error: error?.graphQLErrors?.[0]?.message || error?.networkError?.message,
   };
 };
 
