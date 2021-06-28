@@ -21,6 +21,14 @@ const useStyles = makeStyles((theme) => {
         maxWidth: `${100 / 3}%`,
         flexGrow: 0,
         padding: "8px",
+        "@media (max-width: 960px)": {
+          flexBasis: `${100 / 2}%`,
+          maxWidth: `${100 / 2}%`,
+        },
+        "@media (max-width: 600px)": {
+          flexBasis: `100%`,
+          maxWidth: `100%`,
+        },
       },
     },
   };

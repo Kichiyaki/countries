@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/styles";
 import Container from "common/Container/Container";
 import Grid from "common/Grid/Grid";
 import Link from "common/Link/Link";
+import Card from "common/Card/Card";
 import { Route } from "config/routing";
 import useContinents from "./useContinents";
 
@@ -25,15 +26,19 @@ const ContinentsPage = () => {
         <Grid>
           {continents.map((continent) => {
             return (
-              <h1 key={continent.code}>
-                <Link
-                  to={generatePath(Route.ContinentPage, {
-                    code: continent.code,
-                  })}
-                >
-                  {continent.name} ({continent.code})
-                </Link>
-              </h1>
+              <div key={continent.code}>
+                <Card>
+                  <h1>
+                    <Link
+                      to={generatePath(Route.ContinentPage, {
+                        code: continent.code,
+                      })}
+                    >
+                      {continent.name} ({continent.code})
+                    </Link>
+                  </h1>
+                </Card>
+              </div>
             );
           })}
         </Grid>
