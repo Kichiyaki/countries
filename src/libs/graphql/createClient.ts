@@ -18,6 +18,9 @@ const createClient = (uri: string): ApolloClient<NormalizedCacheObject> => {
         Country: {
           keyFields: ["code"],
         },
+        Language: {
+          keyFields: ["code"],
+        },
       },
     }),
     link: ApolloLink.from([
