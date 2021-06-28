@@ -10,7 +10,16 @@ import { onError } from "@apollo/client/link/error";
 const createClient = (uri: string): ApolloClient<NormalizedCacheObject> => {
   return new ApolloClient({
     queryDeduplication: true,
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        Continent: {
+          keyFields: ["code"],
+        },
+        Country: {
+          keyFields: ["code"],
+        },
+      },
+    }),
     link: ApolloLink.from([
       onError(({ graphQLErrors, networkError }) => {
         if (process.env.NODE_ENV === "development") {
