@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => {
   return {
     container: {
       padding: "0 20px",
-      maxWidth: "1000px",
+      maxWidth: "1200px",
       margin: "0 auto",
     },
   };

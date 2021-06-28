@@ -12,8 +12,10 @@ const QUERY = gql`
 `;
 
 const useContinents = () => {
-  const { data, loading, error } = useQuery<Query["continents"], any>(QUERY);
-  const continents = useMemo(() => data ?? [], [data]);
+  const { data, loading, error } = useQuery<Pick<Query, "continents">, any>(
+    QUERY
+  );
+  const continents = useMemo(() => data?.continents ?? [], [data]);
 
   return {
     continents,
