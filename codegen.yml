@@ -1,0 +1,12 @@
+overwrite: true
+schema: https://countries.trevorblades.com
+generates:
+  src/libs/graphql/types.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+    config:
+      skipTypename: true
+      scalars:
+        ID: number
+        Time: Date | string
