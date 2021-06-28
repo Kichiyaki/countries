@@ -1,11 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ApolloProvider } from "@apollo/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import createClient from "./libs/graphql/createClient";
+import { API_URI } from "./config/api";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={createClient(API_URI)}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
