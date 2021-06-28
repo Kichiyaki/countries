@@ -8,5 +8,5 @@ generates:
     config:
       skipTypename: true
       scalars:
-        ID: number
+        ID: string
         Time: Date | string
